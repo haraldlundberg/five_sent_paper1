@@ -1,0 +1,45 @@
+---
+title: "Five Sentence Term Paper"
+author: "Harald Lundberg"
+execute:
+  echo: true
+---
+
+# Introduction
+
+The people of Madison do not take the same route to the airport.
+
+# Literature Review
+
+An exhaustive search of the literature, lasting an intensive 0 minutes, revealed no existing empirical study of this topic.
+
+# Method
+
+```{python}
+import pandas as pd
+from scipy.stats import chi2_contingency
+
+table = pd.DataFrame(
+    [[47, 8, 49],
+     [22, 10, 21],
+     [55, 59, 29]],
+    index=["Madison", "Greater Madison", "Transplant"],
+    columns=["Beltline", "Downtown", "Interstate"]
+)
+n = int(table.values.sum())
+```
+
+We randomly surveyed `{python} n` residents online about their home origin and their route to the airport, then applied a chi-square test, where our null hypothesis is that route choice is not a function of home origin and our alternate hypothesis is that it is.
+
+# Results
+
+```{python}
+x2, pval, degf, expected = chi2_contingency(table)
+p_text = "p < .001" if pval < 0.001 else f"p = {pval:.3f}"
+```
+
+Our test produced an X2 statistic of `{python} f"{x2:.2f}"` (df = `{python} degf`, `{python} p_text`), so we reject the null hypothesis in favor of the alternate hypothesis.
+
+# Discussion
+
+It was good to do this work because there was previously a dearth of research on the topic, though our counts are invented, so future research should survey real residents.
