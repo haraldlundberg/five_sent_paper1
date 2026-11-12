@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Five Sentence Term Paper",
+    "section": "",
+    "text": "Introduction\nThe people of Madison do not take the same route to the airport.\n\n\nLiterature Review\nAn exhaustive search of the literature, lasting an intensive 0 minutes, revealed no existing empirical study of this topic.\n\n\nMethod\n\nimport pandas as pd\nfrom scipy.stats import chi2_contingency\n\ntable = pd.DataFrame(\n    [[47, 8, 49],\n     [22, 10, 21],\n     [55, 59, 29]],\n    index=[\"Madison\", \"Greater Madison\", \"Transplant\"],\n    columns=[\"Beltline\", \"Downtown\", \"Interstate\"]\n)\nn = int(table.values.sum())\n\nWe randomly surveyed 300 residents online about their home origin and their route to the airport, then applied a chi-square test, where our null hypothesis is that route choice is not a function of home origin and our alternate hypothesis is that it is.\n\n\nResults\n\nx2, pval, degf, expected = chi2_contingency(table)\np_text = \"p &lt; .001\" if pval &lt; 0.001 else f\"p = {pval:.3f}\"\n\nOur test produced an X2 statistic of 42.25 (df = 4, p &lt; .001), so we reject the null hypothesis in favor of the alternate hypothesis.\n\n\nDiscussion\nIt was good to do this work because there was previously a dearth of research on the topic, though our counts are invented, so future research should survey real residents."
+  }
+]
